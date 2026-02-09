@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
   const [location, setLocation] = useState("GATE");
 
   async function signup(name) {
-    const res = await fetch(`${API}/users`, {
+    const res = await fetch(`${API}/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: name, password: "password" }),
@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
   }
 
   async function authenticate() {
-    const res = await fetch(`${API}/users/me`, {
+    const res = await fetch(`${API}/authenticate`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     if (res.ok) {
